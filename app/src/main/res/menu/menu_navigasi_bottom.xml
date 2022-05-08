@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_video"
+        android:title="Video"
+        android:icon="@drawable/ic_video"/>
+
+    <item
+        android:id="@+id/menu_musik"
+        android:title="Musik"
+        android:icon="@drawable/ic_musik"/>
+
+    <item
+        android:id="@+id/menu_playlist"
+        android:title="Playlist"
+        android:icon="@drawable/ic_playlist"/>
+
+    <item
+        android:id="@+id/menu_browse"
+        android:title="Browse"
+        android:icon="@drawable/ic_browse"/>
+
+</menu>
