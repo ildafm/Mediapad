@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bnvNavigationView;
     private FrameLayout flContainer;
 
+
     ActivityResultLauncher<String[]> PermissionResultLauncher;
     private boolean readPermissionGanted = false;
     private boolean locationPermissionGranted = false;

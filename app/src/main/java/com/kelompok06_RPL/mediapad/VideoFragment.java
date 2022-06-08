@@ -1,12 +1,17 @@
 package com.kelompok06_RPL.mediapad;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -14,6 +19,11 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class VideoFragment extends Fragment {
+
+    private ArrayList<VideoFiIes> videoFiIes = new ArrayList<>();
+    private ArrayList<String> allFolder = new ArrayList<>();
+    RecyclerView recyclerView;
+    VideoVolderAdapter adapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,6 +63,15 @@ public class VideoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.rcv_video);
+        showFolder();
+    }
+
+    private void showFolder() {
+        adapter = new VideoVolderAdapter(videoFiIes, allFolder,this);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -60,5 +79,6 @@ public class VideoFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_video, container, false);
+
     }
 }

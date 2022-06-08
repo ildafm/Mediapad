@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PlaylistFragment"
-    android:background="#2CE82F">
+    android:background="#353735">
 
 
 </FrameLayout>
