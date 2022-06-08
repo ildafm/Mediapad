@@ -24,8 +24,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
@@ -56,25 +60,18 @@ public class MainActivity extends AppCompatActivity {
         PermissionResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), new ActivityResultCallback<Map<String, Boolean>>() {
             @Override
             public void onActivityResult(Map<String, Boolean> result) {
-                if (result.get(Manifest.permission.READ_EXTERNAL_STORAGE)!= null){
-                    readPermissionGanted = result.get(Manifest.permission.READ_EXTERNAL_STORAGE);
-                }
-                if (result.get(Manifest.permission.ACCESS_FINE_LOCATION)!= null){
-                    locationPermissionGranted = result.get(Manifest.permission.ACCESS_FINE_LOCATION);
-                }
-                if (result.get(Manifest.permission.RECORD_AUDIO)!= null){
-                    recordPermissionGranted = result.get(Manifest.permission.RECORD_AUDIO);
+                if (result.get(Manifest.permission.WRITE_EXTERNAL_STORAGE)!= null){
+                    readPermissionGanted = result.get(Manifest.permission.WRITE_EXTERNAL_STORAGE);
                 }
             }
+
         });
 
         requestPermission();
 
-        bukaFragment(new VideoFragment());
         getSupportActionBar().setTitle("Video");
-
         bnvNavigationView = findViewById(R.id.bnv_navigasi_bottom);
-        flContainer = findViewById(R.id.fl_container);
+        bnvNavigationView.setSelectedItemId(R.id.menu_video);
 
         bnvNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -83,23 +80,23 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.menu_video:
-                        bukaFragment(new VideoFragment());
-                        getSupportActionBar().setTitle("Video");
-                        return true;
+                        startActivity(new Intent(getApplicationContext(),VideoActivty.class));
+                        overridePendingTransition(0,0);
+                       return true;
 
                     case R.id.menu_musik:
-                        bukaFragment(new MusikFragment());
-                        getSupportActionBar().setTitle("Musik");
+                        startActivity(new Intent(getApplicationContext(),MusikActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.menu_playlist:
-                        bukaFragment(new PlaylistFragment());
-                        getSupportActionBar().setTitle("Playlist");
+                        startActivity(new Intent(getApplicationContext(),PlayListActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
 
                     case R.id.menu_browse:
-                        bukaFragment(new BrowseFragment());
-                        getSupportActionBar().setTitle("Browse");
+                        startActivity(new Intent(getApplicationContext(),BrowseActivity.class));
+                        overridePendingTransition(0,0);
                         return true;
                 }
                 return false;
@@ -124,28 +121,13 @@ public class MainActivity extends AppCompatActivity {
     private void requestPermission(){
         readPermissionGanted = ContextCompat.checkSelfPermission(
                 this,
-                Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_GRANTED;
-        locationPermissionGranted = ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED;
-        recordPermissionGranted = ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.RECORD_AUDIO
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         ) == PackageManager.PERMISSION_GRANTED;
 
         List<String> permissionRequest = new ArrayList<String>();
         if (!readPermissionGanted){
-            permissionRequest.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+            permissionRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
-        if (!locationPermissionGranted){
-            permissionRequest.add(Manifest.permission.ACCESS_FINE_LOCATION);
-        }
-        if (!recordPermissionGranted){
-            permissionRequest.add(Manifest.permission.RECORD_AUDIO);
-        }
-
         if (!permissionRequest.isEmpty()){
             PermissionResultLauncher.launch(permissionRequest.toArray(new String[0]));
         }

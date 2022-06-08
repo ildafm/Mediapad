@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/loupe"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView"/>
+    <item
+        android:id="@+id/back"
+        android:icon="@drawable/turn_back"
+        android:title="back" />
+
+    <item
+        android:id="@+id/bright"
+        android:title="bright"
+        android:icon="@drawable/brightness"/>
+
+</menu>
