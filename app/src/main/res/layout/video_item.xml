@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="50 mb"
-            android:textColor="@color/light_dark"/>
+            android:textColor="#748A8585"/>
     </LinearLayout>
     <ImageView
         android:id="@+id/vid_menu_more"

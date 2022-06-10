@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 @SuppressLint("Range") String path = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
                 @SuppressLint("Range") String date = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATE_ADDED));
 
-                FileMedia fileMedia = new FileMedia(id, title, name, size, duration, path, date);
+                FileMedia fileMedia = new FileMedia(id, title, name, size, path, date, duration);
                 int index = path.lastIndexOf("/");
                 String subString = path.substring(0, index);
                 if (!allFolder.contains(subString)) {
