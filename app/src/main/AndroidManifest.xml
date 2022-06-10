@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediapad">
         <activity
+            android:name=".VideoPlayerActivity"
+            android:exported="false" />
+        <activity
             android:name=".VideoFileActivity"
             android:exported="false" />
         <activity

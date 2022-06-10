@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.151" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_browse.xml" value="0.18055555555555555" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_main.xml" value="0.16877637130801687" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_musik.xml" value="0.18055555555555555" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_video.xml" value="0.2" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_video1.xml" value="0.16877637130801687" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/item_folder.xml" value="0.33" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/video_item.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/folder_menu_refresh.xml" value="0.1359375" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/menu_search.xml" value="0.18981481481481483" />
         <entry key="..\:/Users/ildaf/Documents/Kuliah/Semester 4/GitHub/RPL/UAS/Mediapad/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
