@@ -1,8 +1,10 @@
 package com.kelompok06_RPL.mediapad;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +37,7 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.vidName.setText(videoList.get(position).getDisplayName());
         String size = videoList.get(position).getSize();
         holder.vidSize.setText(android.text.format.Formatter.formatFileSize(context,
@@ -61,6 +63,11 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, VideoPlayerActivity.class);
+                intent.putExtra("position", position);
+                intent.putExtra("video_title" , videoList.get(position).getDisplayName());
+                Bundle bundle = new Bundle();
+                bundle.putParcelableArrayList("videoArrayList", videoList);
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });

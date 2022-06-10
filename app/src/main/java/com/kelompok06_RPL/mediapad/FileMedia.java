@@ -1,6 +1,9 @@
 package com.kelompok06_RPL.mediapad;
 
-public class FileMedia {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class FileMedia implements Parcelable {
     private String id, title, displayName, size, path, date,duration;
 
     public FileMedia(String id, String title, String displayName, String size, String path, String date, String duration) {
@@ -12,6 +15,28 @@ public class FileMedia {
         this.date = date;
         this.duration = duration;
     }
+
+    protected FileMedia(Parcel in) {
+        id = in.readString();
+        title = in.readString();
+        displayName = in.readString();
+        size = in.readString();
+        path = in.readString();
+        date = in.readString();
+        duration = in.readString();
+    }
+
+    public static final Creator<FileMedia> CREATOR = new Creator<FileMedia>() {
+        @Override
+        public FileMedia createFromParcel(Parcel in) {
+            return new FileMedia(in);
+        }
+
+        @Override
+        public FileMedia[] newArray(int size) {
+            return new FileMedia[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -67,5 +92,21 @@ public class FileMedia {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(title);
+        parcel.writeString(displayName);
+        parcel.writeString(size);
+        parcel.writeString(path);
+        parcel.writeString(date);
+        parcel.writeString(duration);
     }
 }
