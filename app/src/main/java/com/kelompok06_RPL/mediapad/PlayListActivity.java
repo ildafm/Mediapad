@@ -27,23 +27,23 @@ public class PlayListActivity extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.menu_video:
-                        startActivity(new Intent(getApplicationContext(),VideoActivty.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.menu_musik:
-                        startActivity(new Intent(getApplicationContext(),MusikActivity.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.menu_playlist:
-                        startActivity(new Intent(getApplicationContext(),PlayListActivity.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), PlayListActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.menu_browse:
-                        startActivity(new Intent(getApplicationContext(),BrowseActivity.class));
-                        overridePendingTransition(0,0);
+                        startActivity(new Intent(getApplicationContext(), BrowseActivity.class));
+                        overridePendingTransition(0, 0);
                         return true;
                 }
                 return false;

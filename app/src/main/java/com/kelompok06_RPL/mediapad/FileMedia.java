@@ -1,9 +1,9 @@
 package com.kelompok06_RPL.mediapad;
 
 public class FileMedia {
-    private int id, title, displayName, size, path, date,duration;
+    private String id, title, displayName, size, path, date,duration;
 
-    public FileMedia(int id, int title, int displayName, int size, int path, int date, int duration) {
+    public FileMedia(String id, String title, String displayName, String size, String path, String date, String duration) {
         this.id = id;
         this.title = title;
         this.displayName = displayName;
@@ -13,59 +13,59 @@ public class FileMedia {
         this.duration = duration;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    public int getDisplayName() {
+    public String getDisplayName() {
         return displayName;
     }
 
-    public void setDisplayName(int displayName) {
+    public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
-    public int getPath() {
+    public String getPath() {
         return path;
     }
 
-    public void setPath(int path) {
+    public void setPath(String path) {
         this.path = path;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public int getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 }

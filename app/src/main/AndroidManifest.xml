@@ -13,20 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediapad">
         <activity
-            android:name=".PlayListActivity"
+            android:name=".VideoFileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_main2" />
+            android:name=".PlayListActivity"
+            android:exported="false" />
         <activity
             android:name=".MusikActivity"
             android:exported="false" />
         <activity
             android:name=".BrowseActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VideoActivty"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
