@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Mediapad">
         <activity
             android:name=".VideoPlayerActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation|screenSize|layoutDirection"/>
         <activity
             android:name=".VideoFileActivity"
             android:exported="false" />
