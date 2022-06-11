@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,6 +97,10 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
                         alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                if (TextUtils.isEmpty(editText.getText().toString())) {
+                                    Toast.makeText(context, "Can't rename empty file", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
                                 String onlyPath = file.getParentFile().getAbsolutePath();
                                 String ext = file.getAbsolutePath();
                                 ext = ext.substring(ext.lastIndexOf("."));
@@ -263,6 +268,11 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
             videoTime = String.format("%02d:%02d", mns, scs);
         }
         return videoTime;
+    }
+    void updateVideoFile(ArrayList<FileMedia> files){
+        videoList = new ArrayList<>();
+        videoList.addAll(files);
+        notifyDataSetChanged();
     }
 
 }

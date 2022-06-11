@@ -10,13 +10,16 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 
-public class VideoFileActivity extends AppCompatActivity {
+public class VideoFileActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     RecyclerView recyclerView;
     private ArrayList<FileMedia> videoFileArrayList = new ArrayList<>();
-    VideoFIleAdapter videoFIleAdapter;
+    static VideoFIleAdapter videoFIleAdapter;
     String folder_name;
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -69,5 +72,32 @@ public class VideoFileActivity extends AppCompatActivity {
            }while (cursor.moveToNext());
        }
         return video_file;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.video_menu_search, menu);
+        MenuItem menuItem = menu.findItem(R.id.search_video);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String inputs = newText.toLowerCase();
+        ArrayList<FileMedia> fileMedia = new ArrayList<>();
+        for (FileMedia media:videoFileArrayList) {
+            if (media.getTitle().toLowerCase().contains(inputs)) {
+                fileMedia.add(media);
+            }
+        }
+        VideoFileActivity.videoFIleAdapter.updateVideoFile(fileMedia);
+        return true;
     }
 }
