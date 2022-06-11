@@ -1,6 +1,8 @@
 package com.kelompok06_RPL.mediapad;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,6 +44,11 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     ConcatenatingMediaSource concatenatingMediaSource;
     ImageView next, prev, video_back, lock, unlock, scalling;
     RelativeLayout root;
+    // Horizontal rcv variables
+    private ArrayList<IconModel> iconModelsArrayList = new ArrayList<>();
+    PlaybackIconAdapter playbackIconAdapter;
+    RecyclerView recyclerViewIcon;
+    // Horizontal rcv variables
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         scalling = findViewById(R.id.scalling);
         root = findViewById(R.id.root_layout);
         title.setText(videoTitle);
+        recyclerViewIcon = findViewById(R.id.rcv_icon);
 
         next.setOnClickListener(this);
         prev.setOnClickListener(this);
@@ -71,6 +79,17 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         unlock.setOnClickListener(this);
         scalling.setOnClickListener(firstListener);
 
+        iconModelsArrayList.add(new IconModel(R.drawable.ic_right, ""));
+        iconModelsArrayList.add(new IconModel(R.drawable.ic_night_mode, "Night"));
+        iconModelsArrayList.add(new IconModel(R.drawable.ic_volume, "Mute"));
+        iconModelsArrayList.add(new IconModel(R.drawable.ic_rotate, "Rotate"));
+
+        playbackIconAdapter = new PlaybackIconAdapter(iconModelsArrayList, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,
+                RecyclerView.HORIZONTAL, true);
+        recyclerViewIcon.setLayoutManager(layoutManager);
+        recyclerViewIcon.setAdapter(playbackIconAdapter);
+        playbackIconAdapter.notifyDataSetChanged();
         playVideo();
     }
 
