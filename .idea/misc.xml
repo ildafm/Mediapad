@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/bottomsheet_bg.xml" value="0.116" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/circle.xml" value="0.1455" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_back.xml" value="0.1435" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_back_1.xml" value="0.1435" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.151" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_playlist.xml" value="0.1435" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_round_skip_previous_24.xml" value="0.1435" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ripple_circle.xml" value="0.1455" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_browse.xml" value="0.18055555555555555" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_main.xml" value="0.16877637130801687" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_musik.xml" value="0.18055555555555555" />
@@ -18,7 +20,7 @@
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_video_activty.xml" value="0.18055555555555555" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_video_file.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_video_player.xml" value="0.18229166666666666" />
-        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/custom_playback_view.xml" value="0.16" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/custom_playback_view.xml" value="0.22" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/folder_item.xml" value="0.25" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_browse.xml" value="0.2" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_musik.xml" value="0.2" />

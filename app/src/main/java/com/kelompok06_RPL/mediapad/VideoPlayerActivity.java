@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
+import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
@@ -33,8 +35,13 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     int position;
     String videoTitle;
     TextView title;
+    private ControlsMode controlsMode;
+    public enum ControlsMode{
+        LOCK,FULLSCREEN;
+    }
     ConcatenatingMediaSource concatenatingMediaSource;
-    ImageView next, prev;
+    ImageView next, prev, video_back, lock, unlock, scalling;
+    RelativeLayout root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +57,19 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         next = findViewById(R.id.exo_next);
         prev = findViewById(R.id.exo_prev);
         title = findViewById(R.id.vid_title);
+        video_back = findViewById(R.id.vid_back);
+        lock = findViewById(R.id.lock);
+        unlock = findViewById(R.id.unlock);
+        scalling = findViewById(R.id.scalling);
+        root = findViewById(R.id.root_layout);
         title.setText(videoTitle);
 
         next.setOnClickListener(this);
         prev.setOnClickListener(this);
+        video_back.setOnClickListener(this);
+        lock.setOnClickListener(this);
+        unlock.setOnClickListener(this);
+        scalling.setOnClickListener(firstListener);
 
         playVideo();
     }
@@ -125,6 +141,24 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.vid_back:
+                if (player != null) {
+                    player.release();
+                }
+                finish();
+                break;
+            case R.id.lock:
+                controlsMode = ControlsMode.FULLSCREEN;
+                root.setVisibility(View.VISIBLE);
+                lock.setVisibility(View.INVISIBLE);
+                Toast.makeText(this, "Unlock", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.unlock:
+                controlsMode = ControlsMode.LOCK;
+                root.setVisibility(View.INVISIBLE);
+                lock.setVisibility(View.VISIBLE);
+                Toast.makeText(this, "Locked", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.exo_next:
                 try {
                     player.stop();
@@ -147,4 +181,37 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
+    View.OnClickListener firstListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FILL);
+            player.setVideoScalingMode(C.VIDEO_SCALING_MODE_SCALE_TO_FIT);
+            scalling.setImageResource(R.drawable.full);
+
+            Toast.makeText(VideoPlayerActivity.this, "Full Screen", Toast.LENGTH_SHORT).show();
+            scalling.setOnClickListener(secondListener);
+        }
+    };
+    View.OnClickListener secondListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_ZOOM);
+            player.setVideoScalingMode(C.VIDEO_SCALING_MODE_DEFAULT);
+            scalling.setImageResource(R.drawable.zoom);
+
+            Toast.makeText(VideoPlayerActivity.this, "Zoom", Toast.LENGTH_SHORT).show();
+            scalling.setOnClickListener(thirdListener);
+        }
+    };
+    View.OnClickListener thirdListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            playerView.setResizeMode(AspectRatioFrameLayout.RESIZE_MODE_FIT);
+            player.setVideoScalingMode(C.VIDEO_SCALING_MODE_DEFAULT);
+            scalling.setImageResource(R.drawable.exit);
+
+            Toast.makeText(VideoPlayerActivity.this, "Fit", Toast.LENGTH_SHORT).show();
+            scalling.setOnClickListener(firstListener);
+        }
+    };
 }

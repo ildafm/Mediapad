@@ -116,15 +116,15 @@
                 android:src="@drawable/exo_icon_previous"/>
             <ImageView
                 android:id="@+id/exo_play"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:src="@drawable/play"
                 app:tint="@color/white" />
             <ImageView
                 android:id="@+id/exo_pause"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_weight="1"
                 android:src="@drawable/pause"
                 app:tint="@color/white" />
@@ -148,5 +148,16 @@
                 android:src="@drawable/exit"/>
         </LinearLayout>
     </RelativeLayout>
+    <ImageView
+        android:id="@+id/lock"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_lock"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="centerInside"
+        android:layout_marginRight="10dp"
+        android:visibility="gone"
+        android:background="@drawable/ripple_circle"/>
 
 </RelativeLayout>
