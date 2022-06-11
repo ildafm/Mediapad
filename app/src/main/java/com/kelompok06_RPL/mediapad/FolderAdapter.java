@@ -37,6 +37,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         String name_folder = folderPath.get(position).substring(indexPath+1);
         holder.folder_Name.setText(name_folder);
         holder.folder_Path.setText(folderPath.get(position));
+        holder.noOfFiles.setText(noOfFolder(folderPath.get(position))+" videos");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,11 +55,23 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView folder_Name, folder_Path;
+        TextView folder_Name, folder_Path, noOfFiles;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             folder_Name = itemView.findViewById(R.id.folder_name);
             folder_Path = itemView.findViewById(R.id.folder_path);
+            noOfFiles = itemView.findViewById(R.id.noOfFiles);
         }
+    }
+
+    int noOfFolder(String folder_name) {
+        int files_no = 0;
+        for (FileMedia fileMedia : fileMedia) {
+            if (fileMedia.getPath().substring(0,fileMedia.getPath().lastIndexOf("/"))
+                    .endsWith(folder_name)) {
+                files_no++;
+            }
+        }
+        return files_no;
     }
 }

@@ -8,6 +8,7 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaMetadataRetriever;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -128,7 +129,7 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
                         alertDialog.create().show();
                         bottomSheetDialog.dismiss();
                     }
-                });
+                }); // Masih gagal?
                 bsView.findViewById(R.id.bs_share).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -174,11 +175,43 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
                         alertDialog.show();
                         bottomSheetDialog.dismiss();
                     }
-                });
+                }); // Masih gagal?
                 bsView.findViewById(R.id.bs_properti).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+                        alertDialog.setTitle("Properties");
 
+                        String one = "File : " + videoList.get(position).getDisplayName();
+
+                        String path = videoList.get(position).getPath();
+                        int indexOfPath = path.lastIndexOf("/");
+                        String two = "Path : " + path.substring(0, indexOfPath);
+
+                        String three = "Size : " + android.text.format.Formatter
+                                .formatFileSize(context, Long.parseLong(videoList.get(position).getSize()));
+
+                        String four = "Length : " + timeConversion((long) millisecond);
+                        String nameFormat = videoList.get(position).getDisplayName();
+                        int index = nameFormat.lastIndexOf(".");
+                        String format = nameFormat.substring(index + 1);
+                        String five = "Format : " + format;
+
+                        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                        mediaMetadataRetriever.setDataSource(videoList.get(position).getPath());
+                        String height = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT);
+                        String widht = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH);
+                        String six = "Resolution : " + widht + "x" + height;
+
+                        alertDialog.setMessage(one + "\n\n" + two + "\n\n" + three + "\n\n" + four + "\n\n" + five + "\n\n" + six);
+                        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        alertDialog.show();
+                        bottomSheetDialog.dismiss();
                     }
                 });
                 bottomSheetDialog.setContentView(bsView);

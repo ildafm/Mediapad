@@ -3,6 +3,7 @@ package com.kelompok06_RPL.mediapad;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
@@ -17,6 +18,7 @@ public class VideoFileActivity extends AppCompatActivity {
     private ArrayList<FileMedia> videoFileArrayList = new ArrayList<>();
     VideoFIleAdapter videoFIleAdapter;
     String folder_name;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,15 @@ public class VideoFileActivity extends AppCompatActivity {
         folder_name = getIntent().getStringExtra("folderName");
         getSupportActionBar().setTitle(folder_name);
         recyclerView = findViewById(R.id.rv_video);
-
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh_vid);
         showVideoFiles();
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                showVideoFiles();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
     private void showVideoFiles() {
