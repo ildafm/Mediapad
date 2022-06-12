@@ -280,12 +280,12 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
         int mns = (int) (timeSec/1000)/60;
         int scs = (int) (timeSec/1000)%60;
 
-        if (scs >=60){
+        while (scs >=60){
             mns++;
             scs = scs - 60;
         }
 
-        if (mns >= 60){
+        while (mns >= 60){
             hrs++;
             mns = mns - 60;
         }
