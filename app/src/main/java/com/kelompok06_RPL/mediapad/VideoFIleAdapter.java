@@ -280,12 +280,17 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
             mns = mns - 60;
         }
 
-//        String requiredFormat = hours+ ": "+mins+": "+secs;//hh:mm:ss formatted string
         if (hrs > 0) {
             videoTime = String.format("%02d:%02d:%02d", hrs, mns, scs);
-        } else {
+        }
+
+        else if(mns > 0) {
             videoTime = String.format("%02d:%02d", mns, scs);
         }
+        else{
+            videoTime = String.format("00:%02d", scs);
+        }
+
         return videoTime;
 
     }
