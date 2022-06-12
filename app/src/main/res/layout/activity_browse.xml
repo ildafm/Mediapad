@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BrowseActivity"
-    android:background="#1E1E1E">
+    android:background="@color/black">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_navigasi_bottom"

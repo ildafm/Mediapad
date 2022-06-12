@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MusikActivity"
-    android:background="#1E1E1E">
+    android:background="@color/black">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_navigasi_bottom"
@@ -21,6 +21,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bnv_navigasi_bottom"
-        />
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/no_song"
+            android:text="Found"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:visibility="gone"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rcv_music"/>
+    </FrameLayout>
 
 </RelativeLayout>
