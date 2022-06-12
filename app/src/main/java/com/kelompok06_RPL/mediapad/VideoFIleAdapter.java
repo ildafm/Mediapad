@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaMetadataRetriever;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.provider.MediaStore;
@@ -25,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,6 +34,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.ViewHolder> {
@@ -258,16 +261,33 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
 
     public String timeConversion(long value) {
         String videoTime;
-        int duration = (int) value;
-        int hrs = (duration / 3600000);
-        int mns = (duration / 60000) % 60000;
-        int scs = duration % 60000 / 1000;
+//        int duration = (int) value;
+//        int hrs = (duration / 3600000);
+//        int mns = (duration / 60000) % 60000;
+//        int scs = duration % 60000 / 1000;
+        long timeSec= value;// Json output
+        int hrs = 0;
+        int mns = (int) (timeSec/1000)/60;
+        int scs = (int) (timeSec/1000)%60;
+
+        if (scs >=60){
+            mns++;
+            scs = scs - 60;
+        }
+
+        if (mns >= 60){
+            hrs++;
+            mns = mns - 60;
+        }
+
+//        String requiredFormat = hours+ ": "+mins+": "+secs;//hh:mm:ss formatted string
         if (hrs > 0) {
             videoTime = String.format("%02d:%02d:%02d", hrs, mns, scs);
         } else {
             videoTime = String.format("%02d:%02d", mns, scs);
         }
         return videoTime;
+
     }
     void updateVideoFile(ArrayList<FileMedia> files){
         videoList = new ArrayList<>();
