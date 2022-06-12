@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         fileMedia = fethMedia();
         adapter = new FolderAdapter(fileMedia, allFolder, this);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
         adapter.notifyDataSetChanged();
 
     }

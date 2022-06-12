@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
@@ -37,8 +41,10 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         String name_folder = folderPath.get(position).substring(indexPath+1);
         holder.folder_Name.setText(name_folder);
         holder.folder_Path.setText(folderPath.get(position));
-        holder.noOfFiles.setText(noOfFolder(folderPath.get(position))+" videos");
-
+        holder.noOfFiles.setText(noOfFolder(folderPath.get(position))+ " Video");
+        Glide.with(context)
+                .load(new File(fileMedia.get(position).getPath()))
+                .into(holder.thumbnail);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,11 +62,13 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView folder_Name, folder_Path, noOfFiles;
+        ImageView thumbnail;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             folder_Name = itemView.findViewById(R.id.folder_name);
             folder_Path = itemView.findViewById(R.id.folder_path);
             noOfFiles = itemView.findViewById(R.id.noOfFiles);
+            thumbnail = itemView.findViewById(R.id.icon_folder);
         }
     }
 
