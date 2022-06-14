@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/list_bg"
     android:layout_margin="5dp"
-    android:padding="10dp">
-
+    android:padding="10dp"
+    >
     <ImageView
         android:layout_width="36dp"
         android:layout_height="36dp"
@@ -23,5 +23,4 @@
         android:ellipsize="end"
         android:textColor="@color/white"
         android:text="Music"/>
-
 </RelativeLayout>
