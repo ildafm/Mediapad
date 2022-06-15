@@ -6,38 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MusicPlayer"
     android:background="@drawable/list_bg">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:visibility="visible">
-            <ImageView
-                android:id="@+id/vid_back"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:padding="10dp"
-                android:src="@drawable/ic_back" />
             <TextView
-                android:id="@+id/song_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="Name Video"
+                android:text="Song"
+                android:singleLine="true"
+                android:ellipsize="marquee"
                 android:textColor="@color/white"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
+                android:textSize="20dp"
+                android:layout_margin="20dp"
+                android:padding="20dp"
+                android:id="@+id/song_title"
+                />
     <ImageView
         android:id="@+id/music_icon_big"
         android:layout_width="240dp"
