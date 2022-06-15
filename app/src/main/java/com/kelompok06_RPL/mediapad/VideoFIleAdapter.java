@@ -239,7 +239,7 @@ public class VideoFIleAdapter extends RecyclerView.Adapter<VideoFIleAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, VideoPlayerActivity.class);
+                Intent intent = new Intent(context, VidPlayer.class);
                 intent.putExtra("position", position);
                 intent.putExtra("video_title", videoList.get(position).getDisplayName());
                 Bundle bundle = new Bundle();

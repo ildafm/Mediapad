@@ -3,12 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.kelompok06_RPL.mediapad">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE">
-
-    </uses-permission>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"></uses-permission>
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
@@ -22,16 +19,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mediapad">
         <activity
-            android:name=".MusicPlayer"
-            android:exported="false" />
-        <activity
-            android:name=".VideoPlayerActivity"
+            android:name=".VidPlayer"
+            android:exported="true"
             android:configChanges="orientation|screenSize|layoutDirection|screenLayout|smallestScreenSize|keyboardHidden|uiMode"
             android:excludeFromRecents="true"
-            android:exported="true"
             android:resizeableActivity="true"
             android:supportsPictureInPicture="true"
-            tools:ignore="UnusedAttribute" />
+            tools:ignore="UnusedAttribute"/>
+        <activity
+            android:name=".MusicPlayer"
+            android:exported="false" />
         <activity
             android:name=".VideoFileActivity"
             android:exported="false"
