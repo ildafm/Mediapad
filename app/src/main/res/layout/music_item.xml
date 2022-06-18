@@ -13,22 +13,20 @@
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
         android:src="@drawable/music"/>
-    <RelativeLayout
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/music_title"
         android:layout_toEndOf="@+id/icon_msc"
         android:layout_toStartOf="@+id/msc_menu_more"
-        android:layout_marginRight="10dp">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/music_title"
-            android:padding="10dp"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:textColor="@color/white"
-            android:text="Music"/>
-    </RelativeLayout>
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/white"
+        android:text="Music"/>
+
     <ImageView
         android:id="@+id/msc_menu_more"
         android:layout_width="wrap_content"
