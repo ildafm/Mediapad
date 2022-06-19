@@ -2,6 +2,7 @@ package com.kelompok06_RPL.mediapad;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -9,7 +10,9 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -29,10 +32,12 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class MscActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+    public static final String MY_PREF = "my pref";
     private BottomNavigationView bnvNavigationView;
     static ArrayList<MusicFiles> musicFiles;
     static boolean shuffelBoolean = false, repeatBoolean = false;
     static ArrayList<MusicFiles> albumSong = new ArrayList<>();
+    String sort_Order;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,7 @@ public class MscActivity extends AppCompatActivity implements SearchView.OnQuery
         getSupportActionBar().setTitle("Music");
         bnvNavigationView = findViewById(R.id.bnv_navigasi_bottom);
         bnvNavigationView.setSelectedItemId(R.id.menu_musik);
+        SharedPreferences.Editor editor = getSharedPreferences(MY_PREF, MODE_PRIVATE).edit();
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_primary_variant)));
         bnvNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -120,9 +126,20 @@ public class MscActivity extends AppCompatActivity implements SearchView.OnQuery
     }
 
     public ArrayList<MusicFiles> getAllAudio(Context context) {
+        SharedPreferences preferences = getSharedPreferences(MY_PREF, MODE_PRIVATE);
+        String sort_value = preferences.getString("sort", "xyz");
         ArrayList<String> duplicate = new ArrayList<>();
         ArrayList<MusicFiles> temArraylist = new ArrayList<>();
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        if (sort_value.equals("sortName")) {
+            sort_Order = MediaStore.MediaColumns.DISPLAY_NAME + " ASC";
+        } else if (sort_value.equals("sortSize")) {
+            sort_Order = MediaStore.MediaColumns.SIZE + " DESC";
+        } else if (sort_value.equals("sortDate")) {
+            sort_Order = MediaStore.MediaColumns.DATE_ADDED + " DESC";
+        } else {
+            sort_Order = MediaStore.Video.Media.DURATION + " DESC";
+        }
         String[] projection = {
                 MediaStore.Audio.Media.ALBUM,
                 MediaStore.Audio.Media.TITLE,
@@ -132,7 +149,7 @@ public class MscActivity extends AppCompatActivity implements SearchView.OnQuery
                 MediaStore.Audio.Media._ID
         };
         Cursor cursor = context.getContentResolver().query(uri, projection,
-                null, null, null);
+                null, null, sort_Order);
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 String album = cursor.getString(0);
@@ -179,5 +196,55 @@ public class MscActivity extends AppCompatActivity implements SearchView.OnQuery
         }
         SongsFragment.mscAdapter.updateList(myFiles);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        SharedPreferences preferences = getSharedPreferences(MY_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.refresh_file:
+                finish();
+                startActivity(getIntent());
+                break;
+            case R.id.sort_by:
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                alertDialog.setTitle("Sort By");
+                alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        editor.apply();
+                        finish();
+                        startActivity(getIntent());
+                        dialog.dismiss();
+                    }
+                });
+                String[] items = {"Name (A to Z)", "Size (Big to Small)", "Date (New to Old)",
+                        "Length (Long to Short)"};
+                alertDialog.setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                editor.putString("sort", "sortName");
+                                break;
+                            case 1:
+                                editor.putString("sort", "sortSize");
+                                break;
+                            case 2:
+                                editor.putString("sort", "sortDate");
+                                break;
+                            case 3:
+                                editor.putString("sort", "sortLength");
+                                break;
+                        }
+                    }
+                });
+                alertDialog.create().show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
