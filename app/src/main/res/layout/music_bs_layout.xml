@@ -1,139 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bottomsheet_bg_msc"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:id="@+id/bs_msc"
+    android:padding="10dp"
+    android:background="@drawable/bottomsheet_bg_msc">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="What do you want!"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/white"
         android:fontFamily="@font/baloo_bhaijaan"/>
     <LinearLayout
-        android:id="@+id/bs_play"
+        android:id="@+id/bs_play_msc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
         android:padding="11dp"
         android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/play"
-            app:tint="@color/white" />
+            android:src="@drawable/ic_round_play_arrow_24"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play"
+            android:text="Play "
             android:layout_marginLeft="25dp"
-            android:textColor="@color/white"
             android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
             android:fontFamily="@font/baloo_bhaijaan"/>
-
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/bs_rename"
+        android:id="@+id/bs_rename_msc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
         android:padding="11dp"
         android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_edit"
-            app:tint="@color/white" />
+            android:src="@drawable/ic_edit"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rename"
+            android:text="Rename "
             android:layout_marginLeft="25dp"
-            android:textColor="@color/white"
             android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
             android:fontFamily="@font/baloo_bhaijaan"/>
-
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/bs_share"
+        android:id="@+id/bs_delete_msc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
         android:padding="11dp"
         android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_share"
-            app:tint="@color/white" />
+            android:src="@drawable/ic_round_delete_24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete "
+            android:layout_marginLeft="25dp"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
+            android:fontFamily="@font/baloo_bhaijaan"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/bs_share_msc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:padding="11dp"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_share"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Share"
             android:layout_marginLeft="25dp"
-            android:textColor="@color/white"
             android:layout_gravity="center_vertical"
+            android:textColor="@color/white"
             android:fontFamily="@font/baloo_bhaijaan"/>
-
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/bs_delete"
+        android:id="@+id/bs_add_msc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
         android:padding="11dp"
         android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_round_delete_24"
-            app:tint="@color/white" />
+            android:src="@drawable/ic_playlist"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete"
+            android:text="Add Playlist"
             android:layout_marginLeft="25dp"
+            android:layout_gravity="center_vertical"
             android:textColor="@color/white"
-            android:layout_gravity="center_vertical"
             android:fontFamily="@font/baloo_bhaijaan"/>
-
     </LinearLayout>
-    <LinearLayout
-        android:id="@+id/bs_properti"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:padding="11dp"
-        android:background="?attr/selectableItemBackground"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_properti"
-            app:tint="@color/white" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Properties"
-            android:layout_marginLeft="25dp"
-            android:textColor="@color/white"
-            android:layout_gravity="center_vertical"
-            android:fontFamily="@font/baloo_bhaijaan"/>
 
-    </LinearLayout>
+
 </LinearLayout>

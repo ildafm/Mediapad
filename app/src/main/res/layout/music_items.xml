@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/music_item"
+    android:background="@drawable/list_bg"
+    android:layout_marginTop="5dp">
+
+    <ImageView
+        android:id="@+id/msc_mg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_av" />
+
+    <TextView
+        android:id="@+id/music_file_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_toStartOf="@+id/msc_menu_set"
+        android:layout_toEndOf="@id/msc_mg"
+        android:text="Song Name"
+        android:textColor="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/msc_menu_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"/>
+</RelativeLayout>

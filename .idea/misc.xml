@@ -5,18 +5,36 @@
       <map>
         <entry key="..\:/Kuliah/Projek Github/Mediapad/app/src/main/res/layout/video_bs_layout.xml" value="0.21" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/bottomsheet_bg.xml" value="0.116" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/bottomsheet_bg_msc.xml" value="0.1205" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/circle.xml" value="0.1455" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/dialog_background.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/error_backgrounf.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/error_bg.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/gradient_bg.xml" value="0.1205" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_back.xml" value="0.1435" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_back_1.xml" value="0.1435" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_baseline_library_music_24.xml" value="0.1375" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.151" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_more.xml" value="0.1525" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_playlist.xml" value="0.1435" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_round_skip_previous_24.xml" value="0.1435" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ic_subtitle.xml" value="0.137" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/list_bg.xml" value="0.1" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/list_bg_folder.xml" value="0.1705" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/logo_music.xml" value="0.1" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/main_bg.xml" value="0.1205" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/neutral_background.xml" value="0.1525" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/ripple_circle.xml" value="0.1455" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/success_background.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/sucess_bg.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/tab_indicator.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/warning_background.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/drawable/warning_bg.xml" value="0.1525" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_album_details.xml" value="0.22" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_browse.xml" value="0.18" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_main.xml" value="0.16877637130801687" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_msc.xml" value="0.2" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_msc_player_acitvity.xml" value="0.22" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_music_player.xml" value="0.2" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_musik.xml" value="0.18055555555555555" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_play_list.xml" value="0.18055555555555555" />
@@ -25,26 +43,36 @@
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_video_activty.xml" value="0.18055555555555555" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_video_file.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/activity_video_player.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/album_item.xml" value="0.25" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/brt_dialog_item.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/custom_playback_view.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/folder_item.xml" value="0.2" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_album.xml" value="0.18229166666666666" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_blank.xml" value="0.18125" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_browse.xml" value="0.2" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_musik.xml" value="0.2" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_playlist.xml" value="0.2" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_songs.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_video.xml" value="0.2" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/fragment_video1.xml" value="0.16877637130801687" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/icon_layout.xml" value="0.67" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/item_folder.xml" value="0.22" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/layout_error_dialog.xml" value="0.2" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/layout_success_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/layout_warning_dialog.xml" value="0.22" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/music_bs_layout.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/music_item.xml" value="0.33" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/music_items.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/playlist_vid.xml" value="0.25" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/rename_layout.xml" value="0.18125" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/video_bs_layout.xml" value="0.25" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/video_item.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/layout/vol_dialog_item.xml" value="0.33" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/folder_menu_refresh.xml" value="0.1359375" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/menu_msc.xml" value="0.18" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/menu_navigasi_bottom.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/menu_search.xml" value="0.18981481481481483" />
-        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/video_menu_search.xml" value="0.18125" />
+        <entry key="..\:/Users/User/Documents/GitHub/Mediapad/app/src/main/res/menu/video_menu_search.xml" value="0.25" />
         <entry key="..\:/Users/ildaf/Documents/Kuliah/Semester 4/GitHub/RPL/UAS/Mediapad/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/ildaf/Documents/Kuliah/Semester 4/GitHub/RPL/UAS/Mediapad/app/src/main/res/layout/fragment_browse.xml" value="0.192481884057971" />
         <entry key="..\:/Users/ildaf/Documents/Kuliah/Semester 4/GitHub/RPL/UAS/Mediapad/app/src/main/res/layout/fragment_musik.xml" value="0.192481884057971" />

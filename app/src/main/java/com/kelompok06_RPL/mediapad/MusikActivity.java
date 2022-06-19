@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MusikActivity extends AppCompatActivity {
     private BottomNavigationView bnvNavigationView;
@@ -31,8 +33,10 @@ public class MusikActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_musik);
+        getSupportActionBar().setTitle("Playlist");
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_primary_variant)));
         bnvNavigationView = findViewById(R.id.bnv_navigasi_bottom);
-        bnvNavigationView.setSelectedItemId(R.id.menu_musik);
+        bnvNavigationView.setSelectedItemId(R.id.menu_playlist);
         recyclerView = findViewById(R.id.rcv_music);
         noSong = findViewById(R.id.no_song);
 
@@ -54,12 +58,12 @@ public class MusikActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.menu_musik:
-                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MscActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.menu_playlist:
-                        startActivity(new Intent(getApplicationContext(), PlayListActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 

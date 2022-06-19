@@ -1,5 +1,6 @@
 package com.kelompok06_RPL.mediapad;
 
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 public class MusicPlayer extends AppCompatActivity {
@@ -25,6 +27,8 @@ public class MusicPlayer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
+        getSupportActionBar().setTitle("Play");
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_primary_variant)));
         title = findViewById(R.id.song_title);
         currentTime = findViewById(R.id.current_time);
         totalTime = findViewById(R.id.total_time);

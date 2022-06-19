@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kelompok06_RPL.mediapad" >
+    package="com.kelompok06_RPL.mediapad">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -17,7 +17,17 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/logo_depan"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Mediapad" >
+        android:theme="@style/Theme.Mediapad">
+        <activity
+            android:name=".AlbumDetails"
+            android:exported="false" />
+        <activity
+            android:name=".MscPlayerAcitvity"
+            android:exported="false"
+            android:parentActivityName=".MscActivity" />
+        <activity
+            android:name=".MscActivity"
+            android:exported="false" />
         <activity
             android:name=".VidPlayer"
             android:configChanges="orientation|screenSize|layoutDirection|screenLayout|smallestScreenSize|keyboardHidden|uiMode"
@@ -44,7 +54,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

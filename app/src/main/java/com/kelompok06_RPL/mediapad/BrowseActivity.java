@@ -1,6 +1,7 @@
 package com.kelompok06_RPL.mediapad;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.Objects;
+
 public class BrowseActivity extends AppCompatActivity {
     private BottomNavigationView bnvNavigationView;
     ImageView video,music;
@@ -20,6 +23,8 @@ public class BrowseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_primary_variant)));
+        getSupportActionBar().setTitle("Browse");
         bnvNavigationView = findViewById(R.id.bnv_navigasi_bottom);
         bnvNavigationView.setSelectedItemId(R.id.menu_browse);
         video = findViewById(R.id.folder_vid);
@@ -49,12 +54,12 @@ public class BrowseActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.menu_musik:
-                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MscActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.menu_playlist:
-                        startActivity(new Intent(getApplicationContext(), PlayListActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 

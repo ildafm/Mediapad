@@ -17,6 +17,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_primary_variant)));
 //        PermissionResultLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), new ActivityResultCallback<Map<String, Boolean>>() {
 //            @Override
 //            public void onActivityResult(Map<String, Boolean> result) {
@@ -101,12 +103,12 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.menu_musik:
-                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MscActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 
                     case R.id.menu_playlist:
-                        startActivity(new Intent(getApplicationContext(), PlayListActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MusikActivity.class));
                         overridePendingTransition(0, 0);
                         return true;
 

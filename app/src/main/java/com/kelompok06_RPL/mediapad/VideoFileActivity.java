@@ -11,6 +11,7 @@ import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class VideoFileActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     public static final String MY_PREF = "my pref";
@@ -37,7 +39,7 @@ public class VideoFileActivity extends AppCompatActivity implements SearchView.O
         getSupportActionBar().setTitle(folder_name);
         recyclerView = findViewById(R.id.rv_video);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_vid);
-
+        Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.color_primary_variant)));
         SharedPreferences.Editor editor = getSharedPreferences(MY_PREF, MODE_PRIVATE).edit();
         editor.putString("playlistFolderName", folder_name);
         editor.apply();
