@@ -1,5 +1,6 @@
 package com.kelompok06_RPL.mediapad;
 
+import static com.kelompok06_RPL.mediapad.MscActivity.albumSong;
 import static com.kelompok06_RPL.mediapad.MscActivity.musicFiles;
 
 import android.os.Bundle;
@@ -68,8 +69,8 @@ public class AlbumFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_album, container, false);
         recyclerView = view.findViewById(R.id.rcv_album);
         recyclerView.setHasFixedSize(true);
-        if (!(musicFiles.size() < 1)) {
-            albumAdapter = new AlbumAdapter(getContext(), musicFiles);
+        if (!(albumSong.size() < 1)) {
+            albumAdapter = new AlbumAdapter(getContext(), albumSong);
             recyclerView.setAdapter(albumAdapter);
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2 ));
         }

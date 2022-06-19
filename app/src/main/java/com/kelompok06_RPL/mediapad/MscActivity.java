@@ -29,6 +29,7 @@ public class MscActivity extends AppCompatActivity {
     private BottomNavigationView bnvNavigationView;
     static ArrayList<MusicFiles> musicFiles;
     static boolean shuffelBoolean = false, repeatBoolean = false;
+    static ArrayList<MusicFiles> albumSong = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +115,7 @@ public class MscActivity extends AppCompatActivity {
     }
 
     public ArrayList<MusicFiles> getAllAudio(Context context) {
+        ArrayList<String> duplicate = new ArrayList<>();
         ArrayList<MusicFiles> temArraylist = new ArrayList<>();
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         String[] projection = {
@@ -137,6 +139,10 @@ public class MscActivity extends AppCompatActivity {
                 MusicFiles musicFiles = new MusicFiles(path, title, artist, album, duration, id);
                 Log.e("Path : " + path,"Album : " + album);
                 temArraylist.add(musicFiles);
+                if (!duplicate.contains(album)) {
+                    albumSong.add(musicFiles);
+                    duplicate.add(album);
+                }
             }
             cursor.close();
         }

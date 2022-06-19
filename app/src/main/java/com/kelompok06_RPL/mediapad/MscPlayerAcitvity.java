@@ -1,5 +1,6 @@
 package com.kelompok06_RPL.mediapad;
 
+import static com.kelompok06_RPL.mediapad.AlbumDetailsAdapter.aFiles;
 import static com.kelompok06_RPL.mediapad.MscActivity.musicFiles;
 import static com.kelompok06_RPL.mediapad.MscActivity.repeatBoolean;
 import static com.kelompok06_RPL.mediapad.MscActivity.shuffelBoolean;
@@ -343,7 +344,12 @@ public class MscPlayerAcitvity extends AppCompatActivity implements MediaPlayer.
 
     private void getIntentMethod() {
         position = getIntent().getIntExtra("position", -1);
-        listSong = musicFiles;
+        String sender = getIntent().getStringExtra("Sender");
+        if (sender != null && sender.equals("albumDetails")) {
+            listSong = aFiles;
+        } else {
+            listSong = musicFiles;
+        }
         if (listSong != null) {
             play.setImageResource(R.drawable.ic_round_pause_24);
             uri = Uri.parse(listSong.get(position).getPath());

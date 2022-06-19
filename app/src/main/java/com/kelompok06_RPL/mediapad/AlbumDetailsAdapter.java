@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 public class AlbumDetailsAdapter extends RecyclerView.Adapter<AlbumDetailsAdapter.ViewHolder> {
     private Context mContext;
-    private ArrayList<MusicFiles> aFiles;
+    static ArrayList<MusicFiles> aFiles;
     View view;
     public AlbumDetailsAdapter(Context mContext, ArrayList<MusicFiles> aFiles) {
         this.mContext = mContext;
@@ -46,6 +46,15 @@ public class AlbumDetailsAdapter extends RecyclerView.Adapter<AlbumDetailsAdapte
                     .load(R.drawable.logo_depan)
                     .into(holder.album);
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MscPlayerAcitvity.class);
+                intent.putExtra("Sender", "albumDetails");
+                intent.putExtra("position", position);
+                mContext.startActivity(intent);
+            }
+        });
 
     }
 
