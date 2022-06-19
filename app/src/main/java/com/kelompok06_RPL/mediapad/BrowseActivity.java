@@ -38,7 +38,7 @@ public class BrowseActivity extends AppCompatActivity {
         music.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MusikActivity.class));
+                startActivity(new Intent(getApplicationContext(),MscActivity.class));
             }
         });
 
