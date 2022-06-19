@@ -16,16 +16,19 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
-public class MscActivity extends AppCompatActivity {
+public class MscActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private BottomNavigationView bnvNavigationView;
     static ArrayList<MusicFiles> musicFiles;
     static boolean shuffelBoolean = false, repeatBoolean = false;
@@ -81,6 +84,8 @@ public class MscActivity extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapters);
         tabLayout.setupWithViewPager(viewPager);
     }
+
+
 
     public static class viewPagerAdapter extends FragmentPagerAdapter {
 
@@ -147,5 +152,32 @@ public class MscActivity extends AppCompatActivity {
             cursor.close();
         }
         return temArraylist;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.video_menu_search,menu);
+        MenuItem search = menu.findItem(R.id.search_video);
+        MenuItem refresh = menu.findItem(R.id.refresh_file);
+        SearchView searchView = (SearchView) search.getActionView();
+        searchView.setOnQueryTextListener(this);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        ArrayList<MusicFiles> myFiles = new ArrayList<>();
+        for (MusicFiles song : musicFiles) {
+            if (song.getTitle().toLowerCase().contains(input)) {
+                myFiles.add(song);
+            }
+        }
+        SongsFragment.mscAdapter.updateList(myFiles);
+        return true;
     }
 }

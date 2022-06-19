@@ -19,7 +19,7 @@ import android.view.ViewGroup;
  */
 public class SongsFragment extends Fragment {
     RecyclerView recyclerView;
-    MscAdapter mscAdapter;
+    static MscAdapter mscAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

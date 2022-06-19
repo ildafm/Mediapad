@@ -171,4 +171,10 @@ public class MscAdapter extends RecyclerView.Adapter<MscAdapter.ViewHolder> {
         retriever.release();
         return art;
     }
+
+    void updateList(ArrayList<MusicFiles> musicFilesArrayList) {
+        mFiles = new ArrayList<>();
+        mFiles.addAll(musicFilesArrayList);
+        notifyDataSetChanged();
+    }
 }
